@@ -3,17 +3,17 @@
 <mapper namespace="com.zhuao.backend.dao.mapper.UserMapper">
     <resultMap id="BaseResultMap" type="com.zhuao.backend.dao.entity.UserEntity">
         <id column="id" jdbcType="BIGINT" property="id"/>
-        <result column="user_id" jdbcType="VARCHAR" property="userId"/>
         <result column="name" jdbcType="VARCHAR" property="name"/>
         <result column="status" jdbcType="VARCHAR" property="status"/>
         <result column="creator" jdbcType="BIGINT" property="creator"/>
         <result column="updater" jdbcType="BIGINT" property="updater"/>
+        <result column="deleted" jdbcType="BIGINT" property="deleted"/>
         <result column="create_time" jdbcType="BIGINT" property="createTime"/>
         <result column="update_time" jdbcType="BIGINT" property="updateTime"/>
     </resultMap>
 
     <sql id="columns">
-        id, user_id, name, status, creator, updater, create_time, update_time
+        id, name, status, creator, updater, deleted, create_time, update_time
     </sql>
 
     <select id="selectUser" resultMap="BaseResultMap">

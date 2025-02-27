@@ -13,8 +13,6 @@ public class UserEntity {
 
     private Long id;
 
-    private String userId;
-
     private String name;
 
     private String status;
@@ -22,6 +20,8 @@ public class UserEntity {
     private Long creator;
 
     private Long updater;
+
+    private Boolean deleted;
 
     private Long createTime;
 
