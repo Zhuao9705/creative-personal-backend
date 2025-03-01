@@ -1,7 +1,9 @@
 package com.zhuao.backend.web.controller.user;
 
-import com.zhuao.backend.dao.entity.UserEntity;
-import com.zhuao.backend.dao.mapper.UserMapper;
+import com.zhuao.backend.manage.data.UserDTO;
+import com.zhuao.backend.service.user.UserService;
+import com.zhuao.backend.web.controller.converter.UserConvert;
+import com.zhuao.backend.web.controller.data.vo.UserVO;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,12 +15,12 @@ import javax.annotation.Resource;
 public class UserController {
 
     @Resource
-    private UserMapper userMapper;
+    private UserService userService;
 
     @RequestMapping(value = "/getUserInfo", method = RequestMethod.GET)
-    public UserEntity getOrganizationAuthProcess() {
-        UserEntity select = userMapper.selectUser();
-        return select;
+    public UserVO getUserInfo(String userName) {
+        UserDTO userDTO = userService.selectUserByUserName(userName);
+        return UserConvert.convertUserDTOToUserVO(userDTO);
     }
 
     @RequestMapping(value = "/say", method = RequestMethod.GET)

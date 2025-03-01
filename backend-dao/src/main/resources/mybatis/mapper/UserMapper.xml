@@ -16,10 +16,11 @@
         id, name, status, creator, updater, deleted, create_time, update_time
     </sql>
 
-    <select id="selectUser" resultMap="BaseResultMap">
+    <select id="selectUserByUserName" resultMap="BaseResultMap">
         select
         <include refid="columns"/>
         from user
+        where name = #{userName}
     </select>
 
 </mapper>

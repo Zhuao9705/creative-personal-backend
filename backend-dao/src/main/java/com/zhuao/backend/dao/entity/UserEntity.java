@@ -1,5 +1,6 @@
 package com.zhuao.backend.dao.entity;
 
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -9,6 +10,7 @@ import lombok.experimental.Accessors;
  */
 @Data
 @Accessors(chain = true)
+@TableName(value ="user")
 public class UserEntity {
 
     private Long id;
