@@ -6,6 +6,7 @@ import com.zhuao.backend.service.user.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -16,5 +17,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO selectUserByUserName(String userName) {
         return userManager.selectUserByUserName(userName);
+    }
+
+    @Override
+    public List<UserDTO> selectAllUserList() {
+        return userManager.selectAllUserList();
     }
 }

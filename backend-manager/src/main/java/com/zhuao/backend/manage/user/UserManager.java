@@ -7,6 +7,7 @@ import com.zhuao.backend.manage.data.UserDTO;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Component
 public class UserManager {
@@ -16,6 +17,10 @@ public class UserManager {
 
     public UserDTO selectUserByUserName(String userName){
         return UserConvert.convertUserToUserDTO(userMapper.selectUserByUserName(userName));
+    }
+
+    public List<UserDTO> selectAllUserList(){
+        return UserConvert.convertUserListToUserDTOList(userMapper.selectAllUserList());
     }
 
 }
