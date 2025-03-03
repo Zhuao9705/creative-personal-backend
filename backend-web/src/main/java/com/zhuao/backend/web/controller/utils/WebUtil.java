@@ -9,8 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * author: zhn4528
- * create: 2022/5/6 14:49
+ * author: zhuao
  */
 @Component
 public class WebUtil {
@@ -19,7 +18,7 @@ public class WebUtil {
     private HttpServletRequest request;
 
     public String getClientIp() {
-        return IPUtil.getIpAddr(request);
+        return request.getRemoteAddr();
     }
 
     public String getURL() {
