@@ -23,4 +23,16 @@
         where name = #{userName}
     </select>
 
+    <select id="selectAllUserList" resultMap="BaseResultMap">
+        select
+        <include refid="columns"/>
+        from user
+    </select>
+
+    <select id="selectByPage" resultMap="BaseResultMap">
+        select
+        <include refid="columns"/>
+        from user
+    </select>
+
 </mapper>

@@ -39,7 +39,7 @@ public class RequestLogAspect {
 
     @Pointcut(value = "execution(* com.zhuao.backend.web.controller..*.*(..)) "
             // 移除探活接口
-            + "&& !execution(* com.zhuao.backend.web.controller.health.HealthCheckController.*(..))"
+            + "&& !execution(* com.zhuao.backend.web.controller.web.health.HealthCheckController.*(..))"
     )
     public void logAspect() {
     }

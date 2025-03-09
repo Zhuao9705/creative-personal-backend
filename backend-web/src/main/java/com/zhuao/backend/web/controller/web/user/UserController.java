@@ -1,5 +1,7 @@
-package com.zhuao.backend.web.controller.user;
+package com.zhuao.backend.web.controller.web.user;
 
+import base.PageResult;
+import cn.hutool.core.bean.BeanUtil;
 import com.zhuao.backend.manage.data.UserDTO;
 import com.zhuao.backend.service.user.UserService;
 import com.zhuao.backend.web.controller.converter.UserConvert;
@@ -9,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 @RestController
 @RequestMapping("/user")
@@ -25,9 +26,11 @@ public class UserController {
     }
 
     @RequestMapping(value = "/getUserList", method = RequestMethod.GET)
-    public List<UserVO> getUserList() {
-        List<UserDTO> userDTOS = userService.selectAllUserList();
-        return UserConvert.convertUserDTOListToUserVOList(userDTOS);
+    public PageResult<UserVO> getUserList(Integer pageNum, Integer pageSize) {
+        PageResult<UserDTO> userDTOPageResult = userService.selectByPage(pageNum, pageSize);
+        PageResult<UserVO> userVOPageResult = new PageResult<>();
+        BeanUtil.copyProperties(userDTOPageResult, userVOPageResult);
+        return userVOPageResult;
     }
 
     @RequestMapping(value = "/say", method = RequestMethod.GET)

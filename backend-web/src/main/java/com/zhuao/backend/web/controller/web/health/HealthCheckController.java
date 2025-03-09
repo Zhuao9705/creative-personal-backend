@@ -1,4 +1,4 @@
-package com.zhuao.backend.web.controller.health;
+package com.zhuao.backend.web.controller.web.health;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

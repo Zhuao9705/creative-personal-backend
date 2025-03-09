@@ -25,4 +25,10 @@ public interface UserMapper extends BaseMapper<UserEntity> {
      * @return
      */
     List<UserEntity> selectAllUserList();
+
+    /**
+     * 分页查询所有用户信息
+     * @return
+     */
+    List<UserEntity> selectByPage();
 }
